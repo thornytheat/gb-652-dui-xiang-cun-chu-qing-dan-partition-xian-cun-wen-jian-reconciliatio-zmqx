@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from .batches import BatchService
 from .config import Settings
 from .errors import install
 from .store import Store
@@ -16,6 +17,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app = FastAPI(title="对象存储清单与分区现存文件对账", version=settings.rule_version)
     app.state.settings = settings
     app.state.store = Store(settings.db_path)
+    app.state.batches = BatchService(app.state.store, settings)
     app.state.templates = web.templates
     app.mount("/static", StaticFiles(directory=str(web.BASE / "static")), name="static")
     for module in (m1_handler, m2_handler, m3_handler, m4_handler, m5_handler, m6_handler,):
