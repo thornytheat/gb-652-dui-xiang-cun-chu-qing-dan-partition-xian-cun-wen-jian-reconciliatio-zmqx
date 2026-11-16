@@ -1,0 +1,1 @@
+key,size,etag\ndt=2026-11-15/hour=00/a.parquet,120,aaa\ndt=2026-11-15/hour=01/b.parquet,80,bbb\ndt=2026-11-15/hour=01/b.parquet,81,ccc\nbad,1\n

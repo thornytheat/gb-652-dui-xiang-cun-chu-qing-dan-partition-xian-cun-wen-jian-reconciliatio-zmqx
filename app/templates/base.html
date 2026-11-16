@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>{{ title }} · objectledger</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/theme.css"><link rel="stylesheet" href="/static/layout.css"><link rel="stylesheet" href="/static/components.css"></head>
+        <body><div class="app"><aside class="rail"><a class="rail__brand" href="/intake">OBJECTLEDGER</a><nav class="rail__nav"><a class="rail__item" href="/manifest">清单采信</a>
+<a class="rail__item" href="/paths">路径契约</a>
+<a class="rail__item" href="/objects">对象核验</a>
+<a class="rail__item" href="/partitions">分区判定</a>
+<a class="rail__item" href="/reconcile">差异对账</a>
+<a class="rail__item" href="/runs">批次导出</a></nav><div class="rail__foot">规则 2026.11<br>L2 对账工作台</div></aside>
+        <div class="work"><header class="topbar"><span class="topbar__title">{{ title }}</span><span class="signal">MANIFEST ⇄ OBJECT DIFF</span><button class="btn" id="refresh">刷新</button></header>
+        <main class="content"><div class="kpis"><div class="kpi"><b>批次</b><span>RUN-261116</span></div><div class="kpi"><b>输入</b><span>{{ data.input_count|default(12) }}</span></div><div class="kpi"><b>有效</b><span>{{ data.valid_count|default(9) }}</span></div><div class="kpi"><b>隔离</b><span>{{ data.quarantine_count|default(3) }}</span></div><div class="kpi"><b>状态</b><span class="sev">复核</span></div></div>
+        {% block content %}{% endblock %}</main><footer class="statusbar"><span>v2026.11</span><span>Asia/Shanghai</span><span>/api/health</span></footer></div></div><script src="/static/app.js"></script><script src="/static/table.js"></script></body></html>
